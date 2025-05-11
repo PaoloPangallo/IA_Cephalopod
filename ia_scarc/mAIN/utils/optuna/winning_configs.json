@@ -1,0 +1,135 @@
+[
+    {
+        "piece_weight": 1.5596151730338326,
+        "bonus_six_weight": 3.9013436290025005,
+        "opponent_piece_weight": 0.5052647918964221,
+        "opponent_six_weight": 1.3482260298783206,
+        "win_rate": 1.0
+    },
+    {
+        "piece_weight": 1.9049328317616383,
+        "bonus_six_weight": 3.5277041839249206,
+        "opponent_piece_weight": 1.8364284870242966,
+        "opponent_six_weight": 1.1336650939898432,
+        "win_rate": 1.0
+    },
+    {
+        "piece_weight": 1.5646608009599479,
+        "bonus_six_weight": 1.909283946268046,
+        "opponent_piece_weight": 0.5557273370105495,
+        "opponent_six_weight": 1.5218073575623503,
+        "win_rate": 1.0
+    },
+    {
+        "piece_weight": 0.9071520044990192,
+        "bonus_six_weight": 3.923019566306613,
+        "opponent_piece_weight": 1.4615835756206552,
+        "opponent_six_weight": 3.965392644338905,
+        "win_rate": 1.0
+    },
+    {
+        "piece_weight": 0.9964211563388444,
+        "bonus_six_weight": 3.888030189111536,
+        "opponent_piece_weight": 1.030786051131975,
+        "opponent_six_weight": 2.092697131068832,
+        "win_rate": 1.0
+    },
+    {
+        "piece_weight": 0.528804995942519,
+        "bonus_six_weight": 2.5964655641882377,
+        "opponent_piece_weight": 0.5099278384674097,
+        "opponent_six_weight": 2.936062474291719,
+        "win_rate": 1.0
+    },
+    {
+        "piece_weight": 1.5161888171391449,
+        "bonus_six_weight": 3.5265646383443428,
+        "opponent_piece_weight": 0.763995402059743,
+        "opponent_six_weight": 1.392062309696731,
+        "win_rate": 1.0
+    },
+    {
+        "piece_weight": 1.5250422312548433,
+        "bonus_six_weight": 1.9284848547633684,
+        "opponent_piece_weight": 0.5153509808666906,
+        "opponent_six_weight": 1.4815221777364465,
+        "win_rate": 1.0
+    },
+    {
+        "piece_weight": 1.39543028203378,
+        "bonus_six_weight": 1.8959295892248185,
+        "opponent_piece_weight": 0.6300760841925163,
+        "opponent_six_weight": 1.359203527688978,
+        "win_rate": 1.0
+    },
+    {
+        "piece_weight": 1.4553960223102194,
+        "bonus_six_weight": 3.6573086282260836,
+        "opponent_piece_weight": 0.6148355942037733,
+        "opponent_six_weight": 1.2430724979151153,
+        "win_rate": 1.0
+    },
+    {
+        "piece_weight": 1.7518600509582383,
+        "bonus_six_weight": 3.1018800853204924,
+        "opponent_piece_weight": 1.3480527494278483,
+        "opponent_six_weight": 1.1851450810721444,
+        "win_rate": 1.0
+    },
+    {
+        "piece_weight": 1.9530571318348973,
+        "bonus_six_weight": 1.8610580443077978,
+        "opponent_piece_weight": 0.7887188940856211,
+        "opponent_six_weight": 2.494885377337515,
+        "win_rate": 1.0
+    },
+    {
+        "piece_weight": 0.9721957752471269,
+        "bonus_six_weight": 3.7489060622113026,
+        "opponent_piece_weight": 1.6598661227216316,
+        "opponent_six_weight": 3.9196974500515385,
+        "win_rate": 1.0
+    },
+    {
+        "piece_weight": 0.7353377182515219,
+        "bonus_six_weight": 3.387037897954817,
+        "opponent_piece_weight": 1.8022430969890193,
+        "opponent_six_weight": 3.860680184825356,
+        "win_rate": 1.0
+    },
+    {
+        "piece_weight": 1.1903506530738133,
+        "bonus_six_weight": 3.5307072901213443,
+        "opponent_piece_weight": 1.1580911484276435,
+        "opponent_six_weight": 2.6960927850528114,
+        "win_rate": 1.0
+    },
+    {
+        "piece_weight": 1.3501069544480429,
+        "bonus_six_weight": 3.399674203871127,
+        "opponent_piece_weight": 1.8879856284026986,
+        "opponent_six_weight": 3.1343761836954487,
+        "win_rate": 1.0
+    },
+    {
+        "piece_weight": 1.4251055369257235,
+        "bonus_six_weight": 3.243914383355216,
+        "opponent_piece_weight": 0.5555953664600777,
+        "opponent_six_weight": 1.1468505244685545,
+        "win_rate": 1.0
+    },
+    {
+        "piece_weight": 1.7093486782283729,
+        "bonus_six_weight": 3.1049534461562667,
+        "opponent_piece_weight": 0.8863979761925231,
+        "opponent_six_weight": 1.439954519541229,
+        "win_rate": 1.0
+    },
+    {
+        "piece_weight": 0.8210298430085399,
+        "bonus_six_weight": 3.8609137191210015,
+        "opponent_piece_weight": 0.5512236757207465,
+        "opponent_six_weight": 1.8895520914090023,
+        "win_rate": 1.0
+    }
+]

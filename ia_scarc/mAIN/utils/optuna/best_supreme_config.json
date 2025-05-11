@@ -1,0 +1,10 @@
+{
+    "piece_weight": 1.6348501381211626,
+    "bonus_six_weight": 2.590829894482983,
+    "opponent_piece_weight": 1.8317548471057277,
+    "opponent_six_weight": 3.154659219131491,
+    "risk_factor": 0.482911642608139,
+    "dominance_weight": 1.5121202509060507,
+    "safe_placement_weight": 0.7019624166860627,
+    "opponent_threat_weight": 0.19929086002522411
+}
