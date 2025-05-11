@@ -1,0 +1,134 @@
+[
+  {
+    "trial_number": 7,
+    "weights": {
+      "piece": 1.4493814608318432,
+      "bonus_six": 2.8655430061871545,
+      "opponent_piece": 1.2823426134771931,
+      "opponent_six": 2.920353364929004
+    },
+    "fitness": 0.4666666666666667,
+    "win_rate": 0.7333333333333333
+  },
+  {
+    "trial_number": 12,
+    "weights": {
+      "piece": 1.6324551254721646,
+      "bonus_six": 2.8662127630681327,
+      "opponent_piece": 0.9928660077612829,
+      "opponent_six": 3.9540358637899815
+    },
+    "fitness": 0.4666666666666667,
+    "win_rate": 0.7333333333333333
+  },
+  {
+    "trial_number": 14,
+    "weights": {
+      "piece": 1.2869931865007755,
+      "bonus_six": 2.96851946050189,
+      "opponent_piece": 0.8020555751179871,
+      "opponent_six": 3.982262224649009
+    },
+    "fitness": 0.4666666666666667,
+    "win_rate": 0.7333333333333333
+  },
+  {
+    "trial_number": 17,
+    "weights": {
+      "piece": 1.5028048346769354,
+      "bonus_six": 2.3484084869258366,
+      "opponent_piece": 0.8412740170605826,
+      "opponent_six": 2.6612691436730933
+    },
+    "fitness": 0.6,
+    "win_rate": 0.8
+  },
+  {
+    "trial_number": 28,
+    "weights": {
+      "piece": 1.2088599101374329,
+      "bonus_six": 2.455821727677122,
+      "opponent_piece": 0.9508936388834907,
+      "opponent_six": 3.160691269674904
+    },
+    "fitness": 0.4666666666666667,
+    "win_rate": 0.7333333333333333
+  },
+  {
+    "trial_number": 32,
+    "weights": {
+      "piece": 1.3872475366289556,
+      "bonus_six": 3.212617726585934,
+      "opponent_piece": 0.7531214822911363,
+      "opponent_six": 3.8470965414187988
+    },
+    "fitness": 0.4666666666666667,
+    "win_rate": 0.7333333333333333
+  },
+  {
+    "trial_number": 34,
+    "weights": {
+      "piece": 1.0783295465819664,
+      "bonus_six": 2.4935886345905907,
+      "opponent_piece": 1.1162462671185103,
+      "opponent_six": 3.7529621346469155
+    },
+    "fitness": 0.4666666666666667,
+    "win_rate": 0.7333333333333333
+  },
+  {
+    "trial_number": 35,
+    "weights": {
+      "piece": 0.9446132229417035,
+      "bonus_six": 2.0973224277083804,
+      "opponent_piece": 0.6119648847745711,
+      "opponent_six": 3.461835028920866
+    },
+    "fitness": 0.7333333333333333,
+    "win_rate": 0.8666666666666667
+  },
+  {
+    "trial_number": 37,
+    "weights": {
+      "piece": 0.8700360491453868,
+      "bonus_six": 1.6878131397543386,
+      "opponent_piece": 0.6161105369512325,
+      "opponent_six": 3.370563341139379
+    },
+    "fitness": 0.4666666666666667,
+    "win_rate": 0.7333333333333333
+  },
+  {
+    "trial_number": 43,
+    "weights": {
+      "piece": 1.1153139754619448,
+      "bonus_six": 2.798244464980489,
+      "opponent_piece": 0.8552315952012866,
+      "opponent_six": 3.525294888851109
+    },
+    "fitness": 0.6,
+    "win_rate": 0.8
+  },
+  {
+    "trial_number": 46,
+    "weights": {
+      "piece": 0.9187461766375763,
+      "bonus_six": 4.554770418052921,
+      "opponent_piece": 1.1673090290923276,
+      "opponent_six": 3.4061799922350717
+    },
+    "fitness": 0.4666666666666667,
+    "win_rate": 0.7333333333333333
+  },
+  {
+    "trial_number": 49,
+    "weights": {
+      "piece": 0.6870478460460343,
+      "bonus_six": 2.0461469287697627,
+      "opponent_piece": 0.9932872222586635,
+      "opponent_six": 2.964726157532561
+    },
+    "fitness": 0.4666666666666667,
+    "win_rate": 0.7333333333333333
+  }
+]

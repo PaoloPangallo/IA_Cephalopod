@@ -1,0 +1,40 @@
+// Torneo Live
+digraph {
+	rankdir=LR splines=polyline
+	subgraph cluster_round1 {
+		label="Round 1" rank=same
+		R1_M1 [label="SmartLookahead vs Minimax (depth=3)
+Winner: SmartLookahead
+Score: FinalCount => B:14, W:11" fillcolor=lightgrey shape=box style=filled]
+		R1_M2 [label="Expectimax (depth=3) vs ModifiedLookAhead
+Winner: Expectimax (depth=3)
+Score: FinalCount => B:13, W:12" fillcolor=lightgrey shape=box style=filled]
+		R1_M3 [label="Naive vs SmartMini
+Winner: SmartMini
+Score: FinalCount => B:5, W:20" fillcolor=lightgrey shape=box style=filled]
+		R1_M4 [label="SmartPositional vs SmartBA
+Winner: SmartPositional
+Score: FinalCount => B:15, W:10" fillcolor=lightgrey shape=box style=filled]
+	}
+	subgraph cluster_round2 {
+		label="Round 2" rank=same
+		R2_M1 [label="SmartLookahead vs Expectimax (depth=3)
+Winner: SmartLookahead
+Score: FinalCount => B:16, W:9" fillcolor=lightgrey shape=box style=filled]
+		R2_M2 [label="SmartMini vs SmartPositional
+Winner: SmartPositional
+Score: FinalCount => B:9, W:15" fillcolor=lightgrey shape=box style=filled]
+	}
+	subgraph cluster_round3 {
+		label="Round 3" rank=same
+		R3_M1 [label="SmartLookahead vs SmartPositional
+Winner: SmartLookahead
+Score: FinalCount => B:16, W:9" fillcolor=lightgrey shape=box style=filled]
+	}
+	R1_M1 -> R2_M1
+	R1_M2 -> R2_M1
+	R1_M3 -> R2_M2
+	R1_M4 -> R2_M2
+	R2_M1 -> R3_M1
+	R2_M2 -> R3_M1
+}

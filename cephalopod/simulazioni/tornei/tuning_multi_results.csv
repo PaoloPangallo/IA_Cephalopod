@@ -1,0 +1,17 @@
+config_id,wins,six_bonus,low_capture_opportunity_bonus,center_bonus_weight,exposure_penalty_weight,opponent_response_penalty_weight
+Config_13,3,20,2,1.0,0.2,1.0
+Config_14,3,20,2,2.0,0.2,0.5
+Config_1,2,10,0,1.0,0.2,1.0
+Config_3,2,10,0,2.0,0.2,1.0
+Config_5,2,10,2,1.0,0.2,1.0
+Config_6,2,10,2,2.0,0.2,0.5
+Config_7,2,10,2,2.0,0.2,1.0
+Config_8,2,20,0,1.0,0.2,0.5
+Config_9,2,20,0,1.0,0.2,1.0
+Config_0,1,10,0,1.0,0.2,0.5
+Config_2,1,10,0,2.0,0.2,0.5
+Config_4,1,10,2,1.0,0.2,0.5
+Config_10,1,20,0,2.0,0.2,0.5
+Config_11,1,20,0,2.0,0.2,1.0
+Config_12,1,20,2,1.0,0.2,0.5
+Config_15,1,20,2,2.0,0.2,1.0

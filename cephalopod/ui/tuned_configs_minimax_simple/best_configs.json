@@ -1,0 +1,14 @@
+[
+  {
+    "win_rate": 1.0,
+    "params": {
+      "depth": 2
+    }
+  },
+  {
+    "win_rate": 1.0,
+    "params": {
+      "depth": 2
+    }
+  }
+]

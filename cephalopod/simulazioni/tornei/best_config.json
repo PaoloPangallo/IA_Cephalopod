@@ -1,0 +1,7 @@
+{
+    "six_bonus": 10,
+    "low_capture_opportunity_bonus": 0,
+    "center_bonus_weight": 1.0,
+    "exposure_penalty_weight": 0.2,
+    "opponent_response_penalty_weight": 0.5
+}

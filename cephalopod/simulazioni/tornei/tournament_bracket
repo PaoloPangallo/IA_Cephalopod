@@ -1,0 +1,54 @@
+// Torneo Cephalopod
+digraph {
+	rankdir=LR
+	match_0 [label="" shape=point width=0.01]
+	SmartPositional [label=SmartPositional shape=box]
+	SmartLookahead [label=SmartLookahead shape=box]
+	SmartPositional -> match_0
+	SmartLookahead -> match_0
+	SmartLookahead_R1 [label="SmartLookahead
+FinalCount => B:8, W:17" fillcolor=lightgrey shape=box style=filled]
+	match_0 -> SmartLookahead_R1
+	match_1 [label="" shape=point width=0.01]
+	"Minimax (depth=3)" [label="Minimax (depth=3)" shape=box]
+	Naive [label=Naive shape=box]
+	"Minimax (depth=3)" -> match_1
+	Naive -> match_1
+	"Minimax (depth=3)_R1" [label="Minimax (depth=3)
+FinalCount => B:21, W:4" fillcolor=lightgrey shape=box style=filled]
+	match_1 -> "Minimax (depth=3)_R1"
+	match_2 [label="" shape=point width=0.01]
+	SmartBA [label=SmartBA shape=box]
+	Heuristic [label=Heuristic shape=box]
+	SmartBA -> match_2
+	Heuristic -> match_2
+	SmartBA_R1 [label="SmartBA
+FinalCount => B:14, W:11" fillcolor=lightgrey shape=box style=filled]
+	match_2 -> SmartBA_R1
+	match_3 [label="" shape=point width=0.01]
+	SmartMini [label=SmartMini shape=box]
+	"Expectimax (depth=3)" [label="Expectimax (depth=3)" shape=box]
+	SmartMini -> match_3
+	"Expectimax (depth=3)" -> match_3
+	SmartMini_R1 [label="SmartMini
+FinalCount => B:14, W:8" fillcolor=lightgrey shape=box style=filled]
+	match_3 -> SmartMini_R1
+	match_4 [label="" shape=point width=0.01]
+	SmartLookahead -> match_4
+	"Minimax (depth=3)" -> match_4
+	SmartLookahead_R2 [label="SmartLookahead
+FinalCount => B:14, W:11" fillcolor=lightgrey shape=box style=filled]
+	match_4 -> SmartLookahead_R2
+	match_5 [label="" shape=point width=0.01]
+	SmartBA -> match_5
+	SmartMini -> match_5
+	SmartMini_R2 [label="SmartMini
+FinalCount => B:9, W:14" fillcolor=lightgrey shape=box style=filled]
+	match_5 -> SmartMini_R2
+	match_6 [label="" shape=point width=0.01]
+	SmartLookahead -> match_6
+	SmartMini -> match_6
+	SmartLookahead_R3 [label="SmartLookahead
+FinalCount => B:16, W:9" fillcolor=lightgrey shape=box style=filled]
+	match_6 -> SmartLookahead_R3
+}
