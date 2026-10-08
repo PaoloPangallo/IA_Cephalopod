@@ -26,6 +26,8 @@ class CephalopodGameDynamic:
         if move is None:
             return False
         r, c, top_face, captured = move
+        if not self.board.in_bounds(r, c) or self.board.grid[r][c] is not None:
+            raise ValueError(f"Illegal move: target ({r}, {c}) is outside or occupied")
 
         # Rimuove eventuali dadi catturati
         for (rr, cc) in captured:
@@ -58,7 +60,7 @@ class CephalopodGameDynamic:
                       if self.board.grid[r][c] is not None and self.board.grid[r][c].color == "B")
         w_count = sum(1 for r in range(self.board.size) for c in range(self.board.size)
                       if self.board.grid[r][c] is not None and self.board.grid[r][c].color == "W")
-        winner = "B" if b_count > w_count else "W"
+        winner = "B" if b_count > w_count else ("W" if w_count > b_count else "DRAW")
         self.moves_log.append({
             "move_num": self.move_num,
             "player": "END",
@@ -73,7 +75,8 @@ class CephalopodGameDynamic:
             "row": -1,
             "col": -1,
             "top_face": -1,
-            "captured": winner
+            "captured": winner,
+            "winner": winner
         })
         return self.moves_log
 
@@ -87,7 +90,7 @@ class CephalopodGameDynamic:
                       if self.board.grid[r][c] is not None and self.board.grid[r][c].color == "B")
         w_count = sum(1 for r in range(self.board.size) for c in range(self.board.size)
                       if self.board.grid[r][c] is not None and self.board.grid[r][c].color == "W")
-        winner = "B" if b_count > w_count else "W"
+        winner = "B" if b_count > w_count else ("W" if w_count > b_count else "DRAW")
         self.moves_log.append({
             "move_num": self.move_num,
             "player": "END",
@@ -102,7 +105,8 @@ class CephalopodGameDynamic:
             "row": -1,
             "col": -1,
             "top_face": -1,
-            "captured": winner
+            "captured": winner,
+            "winner": winner
         })
         return winner
 
@@ -115,7 +119,7 @@ if __name__ == "__main__":
     choice_B = input("Inserisci scelta per B (1 o 2): ").strip()
 
     # Import delle strategie dal package strategies
-    from strategies import NaiveStrategy, HeuristicStrategy
+    from cephalopod.strategies import NaiveStrategy, HeuristicStrategy
 
     strategy_B = HeuristicStrategy() if choice_B == "2" else NaiveStrategy()
 
