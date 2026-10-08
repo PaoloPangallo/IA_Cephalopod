@@ -81,35 +81,9 @@ class CephalopodGameDynamic:
         return self.moves_log
 
     def simulate_game2(self):
-        while not self.board.is_full():
-            if not self.simulate_move():
-                break
-
-        # Conta i dadi presenti per determinare il vincitore
-        b_count = sum(1 for r in range(self.board.size) for c in range(self.board.size)
-                      if self.board.grid[r][c] is not None and self.board.grid[r][c].color == "B")
-        w_count = sum(1 for r in range(self.board.size) for c in range(self.board.size)
-                      if self.board.grid[r][c] is not None and self.board.grid[r][c].color == "W")
-        winner = "B" if b_count > w_count else ("W" if w_count > b_count else "DRAW")
-        self.moves_log.append({
-            "move_num": self.move_num,
-            "player": "END",
-            "row": -1,
-            "col": -1,
-            "top_face": -1,
-            "captured": f"FinalCount => B:{b_count}, W:{w_count}"
-        })
-        self.moves_log.append({
-            "move_num": self.move_num + 1,
-            "player": "WINNER",
-            "row": -1,
-            "col": -1,
-            "top_face": -1,
-            "captured": winner,
-            "winner": winner
-        })
-        return winner
-
+        """Compatibility wrapper returning just the final B/W/DRAW outcome."""
+        self.simulate_game()
+        return self.moves_log[-1]["winner"]
 
 if __name__ == "__main__":
     # Per test, chiediamo all'utente quale strategia usare per ciascun giocatore
