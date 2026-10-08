@@ -25,3 +25,14 @@ cephalopod/clon/training_log.csv
 
 # Logs / temporary outputs
 *.log
+
+# Test, packaging and notebook caches
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+.coverage
+htmlcov/
+build/
+dist/
+*.egg-info/
