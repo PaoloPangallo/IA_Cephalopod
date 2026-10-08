@@ -33,6 +33,5 @@ def choose_capturing_subset(capturing_options):
     """
     if not capturing_options:
         return None, None
-    capturing_options.sort(key=lambda x: (len(x[0]), x[1]), reverse=True)
-    best_subset, best_sum = capturing_options[0]
+    best_subset, best_sum = max(capturing_options, key=lambda x: (len(x[0]), x[1]))
     return best_subset, best_sum
