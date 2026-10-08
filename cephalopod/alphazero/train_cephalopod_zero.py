@@ -17,6 +17,8 @@ MODEL_SAVE_PATH = os.path.join(os.path.dirname(__file__), "cephalopod_zero.pth")
 
 
 def train(model, data, epochs=EPOCHS):
+    if not data:
+        raise ValueError('Self-play training requires at least one position')
     model.train()
     optimizer = optim.Adam(model.parameters(), lr=LEARNING_RATE)
     loss_fn_value = nn.MSELoss()
@@ -47,7 +49,7 @@ def train(model, data, epochs=EPOCHS):
 
             total_loss += loss.item()
 
-        avg_loss = total_loss / max(1, len(data) // BATCH_SIZE)
+        avg_loss = total_loss / len(range(0, len(data), BATCH_SIZE))
         print(f"📈 Epoch {epoch + 1}/{epochs} - Loss: {avg_loss:.4f}")
 
 
