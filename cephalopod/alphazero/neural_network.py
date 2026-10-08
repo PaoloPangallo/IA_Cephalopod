@@ -35,6 +35,11 @@ class NeuralNetwork(nn.Module):
             if masked_policy_sum > 0:
                 masked_policy /= masked_policy_sum
             else:
-                masked_policy = np.ones(25, dtype=np.float32) / 25
+                # A zero-probability fallback must never choose an occupied cell.
+                masked_policy = np.zeros(25, dtype=np.float32)
+                for r, c in legal_moves:
+                    masked_policy[r * 5 + c] = 1.0
+                if legal_moves:
+                    masked_policy /= len(legal_moves)
 
             return masked_policy, value.item()

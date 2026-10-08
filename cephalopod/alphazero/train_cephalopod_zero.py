@@ -17,9 +17,10 @@ MODEL_SAVE_PATH = os.path.join(os.path.dirname(__file__), "cephalopod_zero.pth")
 
 
 def train(model, data, epochs=EPOCHS):
+    if not data:
+        raise ValueError('Self-play training requires at least one position')
     model.train()
     optimizer = optim.Adam(model.parameters(), lr=LEARNING_RATE)
-    loss_fn_policy = nn.CrossEntropyLoss()
     loss_fn_value = nn.MSELoss()
 
     for epoch in range(epochs):
@@ -30,15 +31,15 @@ def train(model, data, epochs=EPOCHS):
             batch = data[i:i + BATCH_SIZE]
             states, target_policies, target_values = zip(*batch)
 
-            x = torch.tensor(np.array(states), dtype=torch.float32).permute(0, 3, 1, 2)  # (B, 3, 5, 5)
-            if x.shape[1] != 3:
-                x = x.permute(0, 2, 3, 1)[:, :3]  # forza la forma corretta se serve
+            x = torch.tensor(np.array(states), dtype=torch.float32)  # (B, 3, 5, 5)
+            if x.ndim != 4 or x.shape[1:] != (3, 5, 5):
+                raise ValueError(f"Unexpected board tensor shape: {tuple(x.shape)}")
 
             y_policy = torch.tensor(np.array(target_policies), dtype=torch.float32)
             y_value = torch.tensor(np.array(target_values), dtype=torch.float32).unsqueeze(1)
 
             policy_logits, value = model(x)
-            policy_loss = loss_fn_policy(policy_logits, torch.argmax(y_policy, dim=1))
+            policy_loss = -(y_policy * F.log_softmax(policy_logits, dim=1)).sum(dim=1).mean()
             value_loss = loss_fn_value(value, y_value)
             loss = policy_loss + value_loss
 
@@ -48,7 +49,7 @@ def train(model, data, epochs=EPOCHS):
 
             total_loss += loss.item()
 
-        avg_loss = total_loss / max(1, len(data) // BATCH_SIZE)
+        avg_loss = total_loss / len(range(0, len(data), BATCH_SIZE))
         print(f"📈 Epoch {epoch + 1}/{epochs} - Loss: {avg_loss:.4f}")
 
 

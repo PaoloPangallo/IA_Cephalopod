@@ -26,6 +26,8 @@ class CephalopodGameDynamic:
         if move is None:
             return False
         r, c, top_face, captured = move
+        if not self.board.in_bounds(r, c) or self.board.grid[r][c] is not None:
+            raise ValueError(f"Illegal move: target ({r}, {c}) is outside or occupied")
 
         # Rimuove eventuali dadi catturati
         for (rr, cc) in captured:
@@ -58,7 +60,7 @@ class CephalopodGameDynamic:
                       if self.board.grid[r][c] is not None and self.board.grid[r][c].color == "B")
         w_count = sum(1 for r in range(self.board.size) for c in range(self.board.size)
                       if self.board.grid[r][c] is not None and self.board.grid[r][c].color == "W")
-        winner = "B" if b_count > w_count else "W"
+        winner = "B" if b_count > w_count else ("W" if w_count > b_count else "DRAW")
         self.moves_log.append({
             "move_num": self.move_num,
             "player": "END",
@@ -73,39 +75,15 @@ class CephalopodGameDynamic:
             "row": -1,
             "col": -1,
             "top_face": -1,
-            "captured": winner
+            "captured": winner,
+            "winner": winner
         })
         return self.moves_log
 
     def simulate_game2(self):
-        while not self.board.is_full():
-            if not self.simulate_move():
-                break
-
-        # Conta i dadi presenti per determinare il vincitore
-        b_count = sum(1 for r in range(self.board.size) for c in range(self.board.size)
-                      if self.board.grid[r][c] is not None and self.board.grid[r][c].color == "B")
-        w_count = sum(1 for r in range(self.board.size) for c in range(self.board.size)
-                      if self.board.grid[r][c] is not None and self.board.grid[r][c].color == "W")
-        winner = "B" if b_count > w_count else "W"
-        self.moves_log.append({
-            "move_num": self.move_num,
-            "player": "END",
-            "row": -1,
-            "col": -1,
-            "top_face": -1,
-            "captured": f"FinalCount => B:{b_count}, W:{w_count}"
-        })
-        self.moves_log.append({
-            "move_num": self.move_num + 1,
-            "player": "WINNER",
-            "row": -1,
-            "col": -1,
-            "top_face": -1,
-            "captured": winner
-        })
-        return winner
-
+        """Compatibility wrapper returning just the final B/W/DRAW outcome."""
+        self.simulate_game()
+        return self.moves_log[-1]["winner"]
 
 if __name__ == "__main__":
     # Per test, chiediamo all'utente quale strategia usare per ciascun giocatore
@@ -115,7 +93,7 @@ if __name__ == "__main__":
     choice_B = input("Inserisci scelta per B (1 o 2): ").strip()
 
     # Import delle strategie dal package strategies
-    from strategies import NaiveStrategy, HeuristicStrategy
+    from cephalopod.strategies import NaiveStrategy, HeuristicStrategy
 
     strategy_B = HeuristicStrategy() if choice_B == "2" else NaiveStrategy()
 

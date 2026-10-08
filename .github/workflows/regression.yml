@@ -1,0 +1,52 @@
+name: Core rules and MCTS regression checks
+
+on:
+  pull_request:
+  push:
+    branches:
+      - refactor/core-rules-and-alphazero
+
+jobs:
+  regression:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install lightweight runtime
+        run: python -m pip install numpy
+      - name: Python syntax
+        run: |
+          python -m compileall -q cephalopod/core cephalopod/strategies/heuristic.py cephalopod/game_modes/cephalopod_game_dynamic.py cephalopod/alphazero cephalopod/ui/ui.py cephalopod/RL/__main__.py tests
+      - name: Core and MCTS tests
+        run: python -m unittest discover -s tests -v
+      - name: Game simulation smoke test
+        run: |
+          python - <<'PY'
+          from cephalopod.game_modes.cephalopod_game_dynamic import CephalopodGameDynamic
+          from cephalopod.strategies import NaiveStrategy, HeuristicStrategy
+          game = CephalopodGameDynamic(NaiveStrategy(), HeuristicStrategy())
+          log = game.simulate_game()
+          assert log[-1]["winner"] in {"B", "W", "DRAW"}
+          assert log[-1]["captured"] == log[-1]["winner"]
+          print("Game finished with", len(log)-2, "turns, winner", log[-1]["winner"])
+          PY
+
+  neural-cpu:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install NumPy and CPU PyTorch
+        run: |
+          python -m pip install numpy
+          python -m pip install torch --index-url https://download.pytorch.org/whl/cpu
+      - name: Neural network and training smoke tests
+        run: python -m unittest discover -s tests -p 'test_neural.py' -v

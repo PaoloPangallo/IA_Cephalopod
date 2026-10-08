@@ -35,7 +35,7 @@ class Board:
 
     def clone(self):
         from copy import deepcopy
-        new_board = Board()
+        new_board = Board(self.size)
         new_board.grid = deepcopy(self.grid)
         return new_board
 

@@ -9,7 +9,7 @@ from cephalopod.strategies import AggressiveStrategy
 from cephalopod.strategies.deep_thinking import ExpectimaxStrategy
 from cephalopod.strategies.smart_lookahead5 import SmartLookaheadStrategy5
 from cephalopod.strategies.smart_position import SmartPositionalLookaheadStrategy
-from strategies import NaiveStrategy
+from cephalopod.strategies import NaiveStrategy
 
 
 def get_shaper(name):

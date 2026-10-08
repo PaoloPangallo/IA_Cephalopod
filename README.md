@@ -97,3 +97,45 @@ It makes it possible to compare trade-offs between handcrafted evaluation and le
 **Paolo Pangallo**  
 M.Sc. Computer Engineering — Artificial Intelligence  
 University of Calabria
+
+## Core-game and AlphaZero correctness pass (review branch)
+
+This project includes research explorations and prototype agents. A dedicated
+review branch introduces regression coverage for the core engine, fixed package
+imports, and corrections in the AlphaZero-style pipeline. The main research
+implementations and stored artifacts are preserved; **existing checkpoint results
+are not claimed to have been retrained or revalidated**.
+
+Run the deterministic rule and search smoke tests from the repository root:
+
+```bash
+python -m unittest discover -s tests -v
+python -m cephalopod.game_modes.cephalopod_game_dynamic
+```
+
+Other entry points (desktop GUI required for Tkinter):
+
+```bash
+python -m cephalopod.ui.ui
+python -m cephalopod.alphazero.main
+```
+
+The graphical bracket renderer requires both the `graphviz` Python package and
+the Graphviz system executable. The comparative simulation utilities use `pandas`.
+Not all historical scripts, experiments, or pretrained weights are covered by
+these tests. In particular, the `ia_scarc/` tree is kept as a separate original
+implementation, not silently merged with the main game engine.
+
+### Rules and evaluation caveats
+
+- Capturing uses the **sum of the captured dice pips**, up to six; the old
+  AlphaZero-style path mistakenly used `6 - sum`.
+- MCTS backs up values from the current player's perspective; selection adjusts
+  the child's perspective, and terminal nodes use the actual game score.
+- Neural training now uses the full MCTS target distribution instead of an
+  argmax-only target. Historical weights may reflect the old objective.
+- A stopped game with equal piece counts is reported as `DRAW`, not
+  automatically won by White. A tournament may still have its own tie-break
+  policy for advancing a player.
+- The originally reported evaluation numbers are **historical** until
+  rerunning controlled matches with a fixed seed and reproducible checkpoints.
