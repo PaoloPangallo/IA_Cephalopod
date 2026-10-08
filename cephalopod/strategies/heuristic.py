@@ -3,7 +3,7 @@
 import random
 
 from cephalopod.cephalopod_game_naive import find_capturing_subsets, choose_capturing_subset
-from strategies import NaiveStrategy
+from cephalopod.strategies.naive import NaiveStrategy
 
 
 def choose_best_move(board, color):
