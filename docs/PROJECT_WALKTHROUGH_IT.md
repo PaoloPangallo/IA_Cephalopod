@@ -31,6 +31,8 @@ choose_move(board, color)
 
 Questa interfaccia è semplice ed è il punto di partenza per confrontare comportamenti differenti. Tuttavia gli esperimenti neurali e la seconda implementazione `ia_scarc/` non sono tutti collegati allo stesso motore attraverso un adapter rigorosamente uniforme.
 
+**Un esempio intuitivo (non un risultato sperimentale).** Supponiamo che una cella vuota confini con due dadi di valore 2 e 3. La mossa potrebbe catturarli, generando un nuovo dado di valore 5. Una strategia greedy giudica principalmente il vantaggio immediato; Minimax considera anche la migliore risposta avversaria; un agente RL consulta le preferenze apprese per gli stati risultanti; una policy neurale stima mosse promettenti, eventualmente supportata dalla ricerca MCTS. **Il problema è lo stesso, cambia il criterio con cui si decide.**
+
 ## 3. L'idea architetturale
 
 Il progetto separa, almeno nella sua struttura principale, il **motore del gioco** dalle **strategie**.
