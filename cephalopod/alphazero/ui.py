@@ -66,7 +66,12 @@ class CephalopodUI:
         probs = np.array([
             policy[r * 5 + c] if (r, c) in legal_moves else 0 for r in range(5) for c in range(5)
         ])
-        probs = probs / probs.sum() if probs.sum() > 0 else np.ones(25) / 25
+        if probs.sum() > 0:
+            probs = probs / probs.sum()
+        else:
+            probs = np.array([1.0 if (r, c) in legal_moves else 0.0
+                              for r in range(5) for c in range(5)])
+            probs /= probs.sum()
         move_index = np.random.choice(25, p=probs)
         r, c = divmod(move_index, 5)
 
@@ -75,7 +80,7 @@ class CephalopodUI:
             return
 
         captured, sum_pips = choose_capturing_subset(find_capturing_subsets(self.board, r, c))
-        top_face = 6 - sum_pips if captured else 1
+        top_face = sum_pips if captured else 1
 
         for rr, cc in (captured or []):
             self.board.grid[rr][cc] = None
