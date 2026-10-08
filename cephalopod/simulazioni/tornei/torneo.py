@@ -5,7 +5,7 @@ from cephalopod.strategies.deep_thinking import MinimaxStrategy, ExpectimaxStrat
 from cephalopod.strategies.mod_smart_lookahead import ModSmartLookaheadStrategy
 from cephalopod.strategies.smart_minimax import SmartMinimaxStrategy
 from cephalopod.strategies.smart_position import SmartPositionalLookaheadStrategy
-from strategies import NaiveStrategy, HeuristicStrategy, AggressiveStrategy
+from cephalopod.strategies import NaiveStrategy, HeuristicStrategy, AggressiveStrategy
 from graphviz import Digraph
 
 # === STRATEGIE REGISTRATE ===
