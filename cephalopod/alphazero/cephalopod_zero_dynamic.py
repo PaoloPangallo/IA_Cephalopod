@@ -43,14 +43,19 @@ class CephalopodZero:
 
             legal_moves = board.get_empty_cells()
             flat_probs = [policy[r * 5 + c] if (r, c) in legal_moves else 0 for r in range(5) for c in range(5)]
-            move_index = np.random.choice(25, p=np.array(flat_probs) / sum(flat_probs))
+            total_prob = sum(flat_probs)
+            if total_prob <= 0:
+                flat_probs = [1.0 if (r, c) in legal_moves else 0.0
+                              for r in range(5) for c in range(5)]
+                total_prob = sum(flat_probs)
+            move_index = np.random.choice(25, p=np.array(flat_probs) / total_prob)
             r, c = divmod(move_index, 5)
 
             from cephalopod.core.mechanics import find_capturing_subsets, choose_capturing_subset
             from cephalopod.core.board import Die
 
             captured, sum_pips = choose_capturing_subset(find_capturing_subsets(board, r, c))
-            top_face = 6 - sum_pips if captured else 1
+            top_face = sum_pips if captured else 1
             for rr, cc in (captured or []):
                 board.grid[rr][cc] = None
             board.place_die(r, c, Die(current_player, top_face))
@@ -65,4 +70,4 @@ class CephalopodZero:
     def evaluate_winner(self, board):
         b_count = sum(1 for row in board.grid for die in row if die and die.color == "B")
         w_count = sum(1 for row in board.grid for die in row if die and die.color == "W")
-        return 1 if b_count > w_count else -1
+        return 1 if b_count > w_count else (-1 if w_count > b_count else 0)
