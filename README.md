@@ -4,7 +4,14 @@
 
 This repository explores several approaches to game-playing artificial intelligence on the same environment, ranging from handcrafted heuristics and adversarial search to reinforcement learning, imitation learning and an AlphaZero-style neural agent.
 
-The project is useful as a comparison of **how different AI paradigms represent, search and learn strategies for the same discrete decision problem**.
+**Motivation:** how does action selection change when the same strategic decision is approached through rules, adversarial search, experience and expert demonstrations? The repository explores that question through multiple AI agent families; it does not claim a single controlled performance ranking across all of them.
+
+### Architecture and project walkthrough
+
+- [System design: motivation, components, algorithms and two editable Mermaid diagrams](docs/SYSTEM_DESIGN.md)
+- [Guida in italiano: spiegazione semplice, presentazione da colloquio e domande tecniche](docs/PROJECT_WALKTHROUGH_IT.md)
+
+The diagrams document the main `cephalopod/` experiments while distinguishing the separate `ia_scarc/` implementation. All original algorithms, experiments and saved results remain available.
 
 ## What is implemented
 
@@ -98,11 +105,11 @@ It makes it possible to compare trade-offs between handcrafted evaluation and le
 M.Sc. Computer Engineering — Artificial Intelligence  
 University of Calabria
 
-## Core-game and AlphaZero correctness pass (review branch)
+## Core-game and AlphaZero correctness checks
 
-This project includes research explorations and prototype agents. A dedicated
-review branch introduces regression coverage for the core engine, fixed package
-imports, and corrections in the AlphaZero-style pipeline. The main research
+This project includes research explorations and prototype agents. Recent fixes
+introduced regression coverage for the core engine, corrected package imports
+and updated parts of the AlphaZero-style pipeline. The main research
 implementations and stored artifacts are preserved; **existing checkpoint results
 are not claimed to have been retrained or revalidated**.
 
